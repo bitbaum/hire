@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Georgy Butaev — Fractional CTO, Zürich</title>
+<meta name="description" content="Fractional CTO and contract engineering in Zürich. 14 production systems, live. Architecture, deploy pipelines, and software that a normal team can maintain after I leave.">
+<meta property="og:title" content="Georgy Butaev — Fractional CTO, Zürich">
+<meta property="og:description" content="I design and run production software alone, at the throughput of a small team. 14 systems live.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --canvas:  #ffffff;
+    --surface: #ffffff;
+    --subtle:  #f6f6f6;
+    --border:  #e2e2e2;
+    --border-strong: #a8a8a8;
+    --text:    #0a0a0a;
+    --muted:   #707070;
+    --accent:  #e63946;
+
+    --radius-sm: 2px;
+    --radius:    4px;
+    --tracking-display: -0.032em;
+    --tracking-eyebrow:  0.14em;
+
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --canvas:  #000000;
+      --surface: #0c0c0c;
+      --subtle:  #131313;
+      --border:  #262626;
+      --border-strong: #4a4a4a;
+      --text:    #f2f2f2;
+      --muted:   #969696;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  a { color: inherit; }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--muted);
+    margin: 0 0 12px;
+  }
+
+  /* ---------- header ---------- */
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  header .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .name { font-weight: 600; letter-spacing: -0.01em; }
+  .loc  { font-size: 13px; color: var(--muted); font-family: var(--mono); }
+
+  /* ---------- hero ---------- */
+
+  .hero { padding: 64px 0 48px; }
+
+  h1 {
+    font-size: clamp(30px, 7vw, 46px);
+    line-height: 1.1;
+    letter-spacing: var(--tracking-display);
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+
+  .lede {
+    font-size: clamp(17px, 2.4vw, 19px);
+    color: var(--muted);
+    margin: 0 0 32px;
+    max-width: 58ch;
+  }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--text);
+    background: var(--text);
+    color: var(--canvas);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity .15s;
+  }
+  .btn:hover { opacity: .85; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .btn-outline:hover { background: var(--subtle); opacity: 1; }
+
+  /* ---------- proof ---------- */
+
+  .proof {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 0 0 8px;
+  }
+  @media (min-width: 620px) {
+    .proof { grid-template-columns: repeat(3, 1fr); }
+  }
+  .proof div { background: var(--surface); padding: 20px; }
+  .proof .metric {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    display: block;
+  }
+  .proof .metric-label { font-size: 13px; color: var(--muted); }
+
+  .proof-note { font-size: 13px; color: var(--muted); margin: 0 0 56px; }
+
+  /* ---------- sections ---------- */
+
+  section { padding: 40px 0; border-top: 1px solid var(--border); }
+
+  h2 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+
+  h3 { font-size: 18px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.01em; }
+
+  p { margin: 0 0 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- offers ---------- */
+
+  .offer {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 12px;
+    background: var(--surface);
+  }
+  .offer-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .price {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .offer p { color: var(--muted); font-size: 15px; margin: 0; }
+
+  /* ---------- work list ---------- */
+
+  .group { margin-bottom: 28px; }
+  .group:last-child { margin-bottom: 0; }
+  .group-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  ul.work { list-style: none; margin: 0; padding: 0; }
+  ul.work li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+  ul.work li:last-child { border-bottom: 0; }
+  ul.work a { font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+  ul.work a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+  ul.work span { color: var(--muted); flex: 1 1 320px; }
+
+  /* ---------- how ---------- */
+
+  ol.how { margin: 0; padding-left: 20px; }
+  ol.how li { margin-bottom: 14px; }
+  ol.how li:last-child { margin-bottom: 0; }
+  ol.how strong { font-weight: 600; }
+
+  /* ---------- faq ---------- */
+
+  details {
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+  details:first-of-type { border-top: 1px solid var(--border); }
+  summary {
+    cursor: pointer;
+    font-weight: 500;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: "+";
+    font-family: var(--mono);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  details[open] summary::before { content: "−"; }
+  details p { margin: 12px 0 0; color: var(--muted); font-size: 15px; }
+
+  /* ---------- contact ---------- */
+
+  .contact { padding: 48px 0 64px; border-top: 1px solid var(--border); }
+  .contact a.mail {
+    font-family: var(--mono);
+    font-size: clamp(15px, 3.6vw, 20px);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    word-break: break-all;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 0 40px;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="name">Georgy Butaev</span>
+    <span class="loc">Zürich, CH</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Fractional CTO · Contract engineering</p>
+    <h1>I design systems and ship them. AI writes the code.</h1>
+    <p class="lede">
+      I take a product from idea to a running, monitored, backed-up production service —
+      and hand over something a normal team can maintain after I leave.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="#contact">Start a conversation</a>
+      <a class="btn btn-outline" href="https://github.com/maonakamoto">See the work</a>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div>
+      <span class="metric">14</span>
+      <span class="metric-label">production systems, live right now</span>
+    </div>
+    <div>
+      <span class="metric">2,514</span>
+      <span class="metric-label">automated tests on one of them</span>
+    </div>
+    <div>
+      <span class="metric">0</span>
+      <span class="metric-label">manual steps between merge and deploy</span>
+    </div>
+  </div>
+  <p class="proof-note">
+    Every number here is checkable. The systems are linked below; the tests and pipelines
+    are in the public repositories.
+  </p>
+
+  <section>
+    <h2>What I do</h2>
+
+    <div class="offer">
+      <div class="offer-head">
+        <h3>Fractional CTO</h3>
+        <span class="price">CHF 2,400 / day</span>
+      </div>
+      <p>
+        2–4 days a month, minimum three months. I own architecture, the deploy pipeline,
+        the review bar, security posture, and the technical side of hiring. For teams that
+        need the decisions made without a CHF 200k salary attached to them.
+      </p>
+    </div>
+
+    <div class="offer">
+      <div class="offer-head">
+        <h3>Build sprint</h3>
+        <span class="price">from CHF 18,000</span>
+      </div>
+      <p>
+        Four to six weeks, fixed price, fixed scope. A defined product or module delivered
+        running in production, with tests and a pipeline. Change requests get re-quoted
+        rather than quietly absorbed.
+      </p>
+    </div>
+
+    <div class="offer">
+      <div class="offer-head">
+        <h3>Rescue</h3>
+        <span class="price">CHF 6,500</span>
+      </div>
+      <p>
+        Two weeks, fixed. An inherited codebase nobody understands. You get a written
+        assessment, a working local setup, CI that actually runs the tests, and a ranked
+        list of what breaks first — whether or not we work together afterwards.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Live work</h2>
+
+    <div class="group">
+      <p class="group-label">Swiss institutions &amp; civic</p>
+      <ul class="work">
+        <li><a href="https://aoz-wohnen.orangecat.ch">AOZ Wohnen</a>
+          <span>Compatibility-based housing placement for refugees. In real use by a Zürich institution.</span></li>
+        <li><a href="https://reparaturbonus.orangecat.ch">Reparaturbonus Zürich</a>
+          <span>City repair-bonus platform — residents to certified repair shops instead of landfill.</span></li>
+        <li><a href="https://revampit.orangecat.ch">RevampIT</a>
+          <span>Digital infrastructure for a Zürich nonprofit keeping hardware in circulation.</span></li>
+        <li><a href="https://evig.orangecat.ch">evig</a>
+          <span>Refurbished hardware, repair and workshops.</span></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Platforms</p>
+      <ul class="work">
+        <li><a href="https://fleetcrown.orangecat.ch">FleetCrown</a>
+          <span>Execution OS — projects, goals, money and AI agent fleets.</span></li>
+        <li><a href="https://solon.orangecat.ch">Solon</a>
+          <span>Governance you can verify instead of trust. Treasury on-chain, votes signed.</span></li>
+        <li><a href="https://kivvi.orangecat.ch">Kivvi</a>
+          <span>AI-first ERP for Swiss SMEs.</span></li>
+        <li><a href="https://orangecat.ch">OrangeCat</a>
+          <span>Bitcoin-native funding and commerce.</span></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Product &amp; client work</p>
+      <ul class="work">
+        <li><a href="https://vitareba.orangecat.ch/de">VitaReBa</a>
+          <span>Clinic portal — booking, care teams, GDPR-scoped clinician AI.</span></li>
+        <li><a href="https://petvity.orangecat.ch/en">Petvity</a>
+          <span>Pet care platform.</span></li>
+        <li><a href="https://sinktattoo.com/en">S.Ink</a>
+          <span>Studio portfolio and booking.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>How I work</h2>
+    <ol class="how">
+      <li><strong>One <code>verify</code> command per repository</strong> — lint, typecheck,
+        test. CI runs exactly that command. Green on your machine means green on the branch.</li>
+      <li><strong>Everything ships through a branch and a pipeline.</strong> The deliberate
+        step is the pipeline, not a person remembering to click something.</li>
+      <li><strong>Self-hosted by default.</strong> Postgres, Caddy, systemd, on hardware you
+        can point at. No per-seat pricing, no vendor lock-in, no surprise invoice.</li>
+      <li><strong>Handover is designed in from day one.</strong> Standard stack, full data
+        export, documentation written for the engineer who arrives after me.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Questions people actually ask</h2>
+
+    <details>
+      <summary>You're one person. What happens if you disappear?</summary>
+      <p>
+        Fair, and it is why handover is in the contract from the start: a standard stack,
+        one command that runs the whole check suite, CI any engineer can read, and complete
+        data export. You are buying a system a normal team can pick up — not my
+        availability. Ask your last agency for a full data export and time how long it takes.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I know AI-written code is any good?</summary>
+      <p>
+        You don't — and you wouldn't for hand-written code either. That is what tests and
+        pipelines are for. The housing system above carries 2,341 unit tests and 173
+        end-to-end tests, and nothing reaches production without all of them passing. I am
+        accountable for the output regardless of what typed it.
+      </p>
+    </details>
+
+    <details>
+      <summary>We need someone on site, full time.</summary>
+      <p>
+        Then you need an employee, and I will tell you that rather than sell you four days
+        a month that won't fix it. I'm happy to help write the role and sit in on the
+        technical interviews instead.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can you do it cheaper?</summary>
+      <p>
+        Not by lowering the rate — by reducing the scope. Tell me which part can wait, and
+        I'll re-quote the rest honestly.
+      </p>
+    </details>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <p>
+      Tell me what you're building and what is currently in the way. If I'm not the right
+      person, I'll say so in the first reply rather than in the third meeting.
+    </p>
+    <p><a class="mail" href="mailto:georgy.butaev@revamp-it.ch">georgy.butaev@revamp-it.ch</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Zürich, Switzerland · <a href="https://github.com/maonakamoto">github.com/maonakamoto</a>
+  </div>
+</footer>
+
+</body>
+</html>
