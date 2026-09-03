@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Georgy Butaev — Fractional CTO, Zürich</title>
-<meta name="description" content="Fractional CTO and contract engineering in Zürich. 14 production systems, live. Architecture, deploy pipelines, and software that a normal team can maintain after I leave.">
+<meta name="description" content="Fractional CTO and contract engineering in Zürich. OrangeCat, FleetCrown, and civic apps I built and deployed. Architecture, deploy pipelines, and software that a normal team can maintain after I leave.">
 <meta property="og:title" content="Georgy Butaev — Fractional CTO, Zürich">
-<meta property="og:description" content="I design and run production software alone, at the throughput of a small team. 14 systems live.">
+<meta property="og:description" content="I design and run production software alone, at the throughput of a small team. OrangeCat, FleetCrown, and civic apps I built and host.">
 <meta property="og:type" content="website">
 <!-- ABSOLUTE url: several scrapers (LinkedIn among them) will not resolve a
      relative og:image and fall back to rendering no preview at all. -->
@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://bitbaum.github.io/hire/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Georgy Butaev — Fractional CTO, Zürich. 14 production systems, live.">
+<meta property="og:image:alt" content="Georgy Butaev — Fractional CTO, Zürich. OrangeCat, FleetCrown, and civic apps I built and deployed.">
 <meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
@@ -319,11 +319,11 @@
   <div class="proof">
     <div>
       <span class="metric">14</span>
-      <span class="metric-label">production systems, live right now</span>
+      <span class="metric-label">systems I built and deployed, live on my hosts</span>
     </div>
     <div>
-      <span class="metric">2,514</span>
-      <span class="metric-label">automated tests on one of them</span>
+      <span class="metric">3,851</span>
+      <span class="metric-label">Vitest tests on AOZ Wohnen (3,650 unit + 201 E2E)</span>
     </div>
     <div>
       <span class="metric">0</span>
@@ -379,36 +379,36 @@
     <h2>Live work</h2>
 
     <div class="group">
-      <p class="group-label">Swiss institutions &amp; civic</p>
+      <p class="group-label">OrangeCat &amp; FleetCrown</p>
       <ul class="work">
-        <li><a href="https://aoz-wohnen.orangecat.ch">AOZ Wohnen</a>
-          <span>Compatibility-based housing placement for refugees. In real use by a Zürich institution.</span></li>
-        <li><a href="https://reparaturbonus.orangecat.ch">Reparaturbonus Zürich</a>
-          <span>City repair-bonus platform — residents to certified repair shops instead of landfill.</span></li>
-        <li><a href="https://revampit.orangecat.ch">RevampIT</a>
-          <span>Digital infrastructure for a Zürich nonprofit keeping hardware in circulation.</span></li>
-        <li><a href="https://evig.orangecat.ch">evig</a>
-          <span>Refurbished hardware, repair and workshops.</span></li>
+        <li><a href="https://orangecat.ch">OrangeCat</a>
+          <span>Live site. Pay-link wedge; funding, lending, investing and the Cat are roadmap.</span></li>
+        <li><a href="https://fleetcrown.orangecat.ch">FleetCrown</a>
+          <span>Execution OS — projects, goals, money and AI agent fleets. Pre-1.0, live.</span></li>
       </ul>
     </div>
 
     <div class="group">
-      <p class="group-label">Platforms</p>
+      <p class="group-label">Civic apps — built and deployed, not customers</p>
       <ul class="work">
-        <li><a href="https://fleetcrown.orangecat.ch">FleetCrown</a>
-          <span>Execution OS — projects, goals, money and AI agent fleets.</span></li>
+        <li><a href="https://aoz.orangecat.ch">AOZ Wohnen</a>
+          <span>Compatibility-based housing placement for refugees. Demo with sample data — pilot/pitch only.</span></li>
+        <li><a href="https://reparaturbonus.orangecat.ch">Reparaturbonus Zürich</a>
+          <span>Repair-bonus platform I built and deployed — residents to certified repair shops instead of landfill. Not a Stadt Zürich contract.</span></li>
+        <li><a href="https://revampit.orangecat.ch">RevampIT</a>
+          <span>Digital infrastructure built around a Zürich nonprofit keeping hardware in circulation. Not a customer.</span></li>
+        <li><a href="https://evig.orangecat.ch">evig</a>
+          <span>Refurbished hardware, repair and workshops. Built and deployed, not a customer.</span></li>
+      </ul>
+    </div>
+
+    <div class="group">
+      <p class="group-label">Also deployed</p>
+      <ul class="work">
         <li><a href="https://solon.orangecat.ch">Solon</a>
           <span>Governance you can verify instead of trust. Treasury on-chain, votes signed.</span></li>
         <li><a href="https://kivvi.orangecat.ch">Kivvi</a>
           <span>AI-first ERP for Swiss SMEs.</span></li>
-        <li><a href="https://orangecat.ch">OrangeCat</a>
-          <span>Bitcoin-native funding and commerce.</span></li>
-      </ul>
-    </div>
-
-    <div class="group">
-      <p class="group-label">Product &amp; client work</p>
-      <ul class="work">
         <li><a href="https://vitareba.orangecat.ch/de">VitaReBa</a>
           <span>Clinic portal — booking, care teams, GDPR-scoped clinician AI.</span></li>
         <li><a href="https://petvity.orangecat.ch/en">Petvity</a>
@@ -426,7 +426,7 @@
         test. CI runs exactly that command. Green on your machine means green on the branch.</li>
       <li><strong>Everything ships through a branch and a pipeline.</strong> The deliberate
         step is the pipeline, not a person remembering to click something.</li>
-      <li><strong>Self-hosted by default.</strong> Postgres, Caddy, systemd, on hardware you
+      <li><strong>Self-hosted by default on Hetzner + Caddy.</strong> Postgres, systemd, on hardware you
         can point at. No per-seat pricing, no vendor lock-in, no surprise invoice.</li>
       <li><strong>Handover is designed in from day one.</strong> Standard stack, full data
         export, documentation written for the engineer who arrives after me.</li>
@@ -450,8 +450,8 @@
       <summary>How do I know AI-written code is any good?</summary>
       <p>
         You don't — and you wouldn't for hand-written code either. That is what tests and
-        pipelines are for. The housing system above carries 2,341 unit tests and 173
-        end-to-end tests, and nothing reaches production without all of them passing. I am
+        pipelines are for. The AOZ Wohnen demo carries 3,650 unit tests and 201
+        end-to-end tests (Vitest), and nothing reaches the hosted instance without all of them passing. I am
         accountable for the output regardless of what typed it.
       </p>
     </details>
@@ -480,7 +480,6 @@
       Tell me what you're building and what is currently in the way. If I'm not the right
       person, I'll say so in the first reply rather than in the third meeting.
     </p>
-    <p><a class="mail" href="mailto:georgy.butaev@revamp-it.ch">georgy.butaev@revamp-it.ch</a></p>
   </section>
 
 </main>
