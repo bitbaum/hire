@@ -50,8 +50,14 @@ jobs:
         run: |
           set -euo pipefail
           node build.mjs
-          if git diff --quiet -- index.html register.snapshot.json; then
-            echo "work list already current"
+          # Gate on the PAGE, not the snapshot. The snapshot carries the
+          # register's `generatedAt`, which moves on every fetch — so gating on
+          # it committed on every run and said nothing. That is not theoretical:
+          # the first scheduled run after this workflow shipped pushed a commit
+          # whose entire diff was one timestamp line.
+          if git diff --quiet -- index.html; then
+            echo "work list already current (register timestamp ignored)"
+            git checkout -- register.snapshot.json
             exit 0
           fi
           git config user.name  "hire-bot"
