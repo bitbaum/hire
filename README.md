@@ -24,7 +24,10 @@ lives. Neither owns the other's half.
 
 It used to be typed, and on 2026-09-12 it carried four defects at once:
 
-- it linked `revampit.orangecat.ch`, a host retired on 2026-09-10;
+- it linked the organisation's **pre-rename host**, retired on 2026-09-10
+  (the literal name is deliberately not repeated here — `fleet`'s org-drift
+  audit sweeps this file, and a retired host quoted in prose is exactly what it
+  is built to catch);
 - it listed **RevampIT and evig as two separate systems** — the organisation
   renamed, so that is one system counted twice, to a reader counting systems;
 - it named the clinic "VitaReBa", replaced by "Vita";
