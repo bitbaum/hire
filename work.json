@@ -1,0 +1,27 @@
+{
+  "_comment": "Editorial layer over the fleet register (https://fleetcrown.orangecat.ch/api/fleet/register). The register says WHAT EXISTS and, crucially, WHERE it currently lives; this file says how the hire page groups and describes it. Keyed by register slug. A slug listed here with no matching register row is a hard error at build time — that is the whole point: the hand-typed list carried a host that had been retired for two days and counted one system twice under two names.",
+  "groups": [
+    { "id": "products", "label": "OrangeCat &amp; FleetCrown" },
+    { "id": "civic", "label": "Civic / public-service" },
+    { "id": "deployed", "label": "Also deployed" }
+  ],
+  "work": {
+    "orangecat":         { "name": "OrangeCat", "group": "products", "order": 1, "what": "Live site. Pay-link wedge; funding, lending, investing and the Cat are roadmap." },
+    "fleetcrown":        { "name": "FleetCrown", "group": "products", "order": 2, "what": "Execution OS — projects, goals, money and AI agent fleets. Pre-1.0, live." },
+
+    "aoz-housing":       { "name": "AOZ Begleitung", "group": "civic", "order": 1, "what": "Compatibility-based housing placement. Deployed demo with sample data." },
+    "reparaturbonus-zh": { "name": "Reparaturbonus Zürich", "group": "civic", "order": 2, "what": "Repair-bonus platform — residents to certified repair shops instead of landfill." },
+    "evig":              { "name": "evig", "group": "civic", "order": 3, "what": "Circular-economy infrastructure: refurbished hardware, repair, and workshops. Formerly RevampIT." },
+
+    "solon":             { "name": "Solon", "group": "deployed", "order": 1, "what": "Governance you can verify instead of trust. Treasury on-chain, votes signed." },
+    "kivvi":             { "name": "Kivvi", "group": "deployed", "order": 2, "what": "AI-first ERP for Swiss SMEs." },
+    "vitareba":          { "name": "Vita", "group": "deployed", "order": 3, "what": "Clinic portal — booking, care teams, GDPR-scoped clinician AI." },
+    "petvity":           { "name": "Petvity", "group": "deployed", "order": 4, "what": "Pet care platform." },
+    "s-ink":             { "name": "S.Ink", "group": "deployed", "order": 5, "what": "Studio portfolio and booking." }
+  },
+  "extras": {
+    "_comment": "Hosts the register does not carry a row for. Each needs a reason, and a URL that is checked by build.mjs like any other.",
+    "orangecat":  { "url": "https://orangecat.ch", "_why": "served from the main Caddyfile, not an apps.conf row" },
+    "fleetcrown": { "url": "https://fleetcrown.orangecat.ch", "_why": "the register deliberately excludes its own host" }
+  }
+}
