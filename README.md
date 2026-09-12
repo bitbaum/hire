@@ -30,7 +30,8 @@ It used to be typed, and on 2026-09-12 it carried four defects at once:
   is built to catch);
 - it listed **RevampIT and evig as two separate systems** — the organisation
   renamed, so that is one system counted twice, to a reader counting systems;
-- it named the clinic "VitaReBa", replaced by "Vita";
+- it named the clinic by its **pre-rename name**, replaced on 2026-09-11 by
+  "Vita" — not repeated here for the same reason as the host above;
 - it named the housing product "AOZ Wohnen", which is neither its current name
   (AOZ Begleitung) nor the retired one on record.
 
