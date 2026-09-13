@@ -7,7 +7,7 @@ engineering, Zürich.
 
 Everything between the `WORK:START` / `WORK:END` markers in `index.html` is
 produced by `build.mjs` from the fleet register
-(<https://fleetcrown.orangecat.ch/api/fleet/register>). **Do not edit it by
+(<https://loki.orangecat.ch/api/fleet/register>). **Do not edit it by
 hand** — the next build overwrites it, and CI fails the PR that tried.
 
 ```bash
