@@ -1,43 +1,27 @@
 # hire
 
-The one-pager at <https://bitbaum.github.io/hire/> — fractional CTO / contract
-engineering, Zürich.
+**The page moved to <https://bitbaum.orangecat.ch/hire/>.** This repository now
+serves a redirect so that links already in the world keep working.
 
-## The "Live work" list is generated
+## Why it moved
 
-Everything between the `WORK:START` / `WORK:END` markers in `index.html` is
-produced by `build.mjs` from the fleet register
-(<https://loki.orangecat.ch/api/fleet/register>). **Do not edit it by
-hand** — the next build overwrites it, and CI fails the PR that tried.
+It was the destination of the primary button on every page of
+bitbaum.orangecat.ch, and it looked like a different company: its own light
+theme and typeface, a personal name in the title, a superseded GitHub handle in
+the footer, and no way to make contact — a prospect's only link was a profile
+page. A hire page that a visitor cannot reply to is not a hire page.
 
-```bash
-node build.mjs            # fetch the register, rewrite index.html
-node build.mjs --offline  # build from register.snapshot.json
-node build.mjs --check    # exit 1 if the page is out of sync
-```
+It now lives inside the site it belongs to, in the same design system, with the
+same header and footer, and with an address you can write to. The live-work
+list is still derived rather than typed — the same rule that made it worth
+generating here applies there, and the generator is now
+`bitbaum/bitbaum` `site/build.mjs`, reading the fleet map.
 
-`work.json` is the editorial half: which systems appear, in which group, under
-what name, with what sentence. The register owns where each one currently
-lives. Neither owns the other's half.
+## What used to be here
 
-## Why it is generated
-
-It used to be typed, and on 2026-09-12 it carried four defects at once:
-
-- it linked the organisation's **pre-rename host**, retired on 2026-09-10
-  (the literal name is deliberately not repeated here — `fleet`'s org-drift
-  audit sweeps this file, and a retired host quoted in prose is exactly what it
-  is built to catch);
-- it listed **RevampIT and evig as two separate systems** — the organisation
-  renamed, so that is one system counted twice, to a reader counting systems;
-- it named the clinic by its **pre-rename name**, replaced on 2026-09-11 by
-  "Vita" — not repeated here for the same reason as the host above;
-- it named the housing product "AOZ Wohnen", which is neither its current name
-  (AOZ Begleitung) nor the retired one on record.
-
-None of them broke anything: a retired host answers 200 because it is a
-permanent redirect. That is exactly why nothing reported them.
-
-`build.mjs` refuses to build rather than repeat any of it — an unknown slug, a
-missing URL, an unknown group, or **two entries resolving to the same host**
-each fail the build with the offending name.
+`build.mjs`, `work.json`, `register.snapshot.json` and the weekly
+`sync-work.yml` workflow existed only to produce `index.html` from the fleet
+register. With the page gone they have no artifact to build, and the workflow
+would have committed the old page back over this redirect within a week, so
+they were removed rather than left to rot. They are in this repository's git
+history if the approach is ever wanted again.
